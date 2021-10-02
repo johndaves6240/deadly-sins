@@ -16,7 +16,6 @@
             </h3>
        
         <input id="anchor" type="submit" name="submit">
-            <a href="login.php">Login</a>
         </form>
     </div> 
     <?php 

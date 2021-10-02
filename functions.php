@@ -27,12 +27,14 @@
             $prepare= $conn->prepare("INSERT INTO user_info VALUES ('',?,?)");
             $prepare->bind_param('ss',$email,$password);
             $prepare->execute();
+            header('Location: login.php');
 
           }else if ($_POST['password1'] !== $_POST['password2']){
               echo 'Password do not match';
           }
 
         }
+    
     }
 
 

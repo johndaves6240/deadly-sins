@@ -29,14 +29,20 @@
         if(isset($_POST['login'])){
             $username= $_POST['email'];
 			$password=$_POST['password'];
-
-            $result= $conn->query("SELECT * FROM user_info
-                                 WHERE username='$username' 
-                                  AND user_password='$password'");
-            if(mysqli_num_rows($result) > 0 ){ 
-                                      echo 'true';
+            $password1= password_hash($password, PASSWORD_DEFAULT);
+            $bago= $conn->query("SELECT * FROM user_info
+                                 WHERE username='$username'");
+            if(password_verify($password,$password1)){
+			if($row=$bago->fetch_assoc()){
+                
+                    $_SESSION['username']=$row['username'];
+                 header('Location: welcome.php');
+                    }
+            }else{
+                header('Location: login.php');
             }
         }
+        
         
         
       
