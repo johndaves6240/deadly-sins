@@ -9,13 +9,14 @@
         <form action="" method='POST'>
             <h3> 
                 
-                Email:&nbsp  <input type="email" name="email"><br><br>
-                Password: &nbsp <input type="password" name="password1"> <br> <br>
+                Email:&nbsp  <input type="email" name="email" id="username"><br><br>
+                Password: &nbsp <input type="password" name="password1" id="user_pass"> <br> <br>
                 Confirm Password: &nbsp <input type="password" name="password2"> <br> <br>
 
             </h3>
        
         <input id="anchor" type="submit" name="submit">
+         
         </form>
     </div> 
     <?php 
@@ -34,10 +35,8 @@
           
         insertData();
     
-    
-    
-    
     ?>
+
 
 
 </body>
