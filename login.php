@@ -32,17 +32,18 @@
             $password1= password_hash($password, PASSWORD_DEFAULT);
             $bago= $conn->query("SELECT * FROM user_info
                                  WHERE username='$username'");
-            if(password_verify($password,$password1)){
-			if($row=$bago->fetch_assoc()){
+
+          
+			if($row=$bago->fetch_assoc()&&password_verify($password,$password1)){
+               
+                        $_SESSION['username']=$row['username'];
+                       header('Location: welcome.php');
                 
-                    $_SESSION['username']=$row['username'];
-                 header('Location: welcome.php');
-                    }
             }else{
                 header('Location: login.php');
             }
         }
-        
+    
         
         
       
